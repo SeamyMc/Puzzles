@@ -1,0 +1,57 @@
+<html>
+
+	<script>
+
+
+	function makeDictionary(text){
+		let words = text.split(' ');
+		let dictionary = {};
+
+		for(let i=0; i<words.length; i++){
+			let word = words[i];
+			if (dictionary[word]){
+				dictionary[word]++;
+			} else {
+				dictionary[word] = 1;
+			};
+		};
+
+		return dictionary;
+	};
+
+	function getCount(word){
+		let count = 0;
+		if (word in this.dictionary){
+			count = this.dictionary[word];
+		};
+
+		return count;
+	};
+
+	function getCountForHumans(word){
+		return "there are " + this.count(word) + " occurances of " + word + " in this book";
+	};
+
+
+	function makeBook(text){
+		let book = {};
+		book.dictionary = makeDictionary(text);
+		book.getCount = getCount;
+		book.getCountForHumans = getCountForHumans;
+
+		return book;
+	};
+
+	
+
+	let myBook = makeBook("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in count count reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum, and here are some words words to to to to test the validity of the the algorithm ???");
+
+	console.log(myBook.getCountForHumans("count"));
+
+
+
+
+
+	</script>
+
+</html>
